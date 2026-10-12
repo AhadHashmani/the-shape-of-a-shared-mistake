@@ -1,0 +1,69 @@
+{
+  "image_resolution": [
+    8700,
+    8700
+  ],
+  "image_seed": 20261011,
+  "images": [
+    {
+      "correlation": 0.0,
+      "title": "Independent Errors",
+      "alignment": 0.05868823892297276,
+      "transport": 0.015777797199362644
+    },
+    {
+      "correlation": 0.5,
+      "title": "Partial Echo",
+      "alignment": 0.21224108721490045,
+      "transport": 0.006389409910126752
+    },
+    {
+      "correlation": 1.0,
+      "title": "A Shared Mistake",
+      "alignment": 0.9529862888160514,
+      "transport": 0.0450151415312047
+    }
+  ],
+  "palette": [
+    [
+      255.0,
+      185.0,
+      70.0
+    ],
+    [
+      255.0,
+      70.0,
+      105.0
+    ],
+    [
+      172.0,
+      106.0,
+      255.0
+    ],
+    [
+      65.0,
+      140.0,
+      255.0
+    ],
+    [
+      52.0,
+      239.0,
+      220.0
+    ],
+    [
+      182.0,
+      245.0,
+      110.0
+    ],
+    [
+      255.0,
+      185.0,
+      70.0
+    ]
+  ],
+  "mapping": "Each trajectory has the hue of its particle final absolute heading; brightness encodes trajectory time",
+  "window_steps": 90,
+  "display_effect": "A small halo derived from the path raster; not physical emission",
+  "boundary": "Segments crossing periodic seams are omitted",
+  "framing": "Full periodic square, with no condition-specific rotation or crop"
+}

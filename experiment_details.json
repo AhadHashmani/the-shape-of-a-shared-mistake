@@ -1,0 +1,138 @@
+{
+  "question": "At fixed error variance, does sharing directional errors change alignment and net transport?",
+  "config": {
+    "particles": 1100,
+    "side": 25.0,
+    "radius": 1.0,
+    "speed": 0.18,
+    "sigma": 1.2,
+    "steps": 1500,
+    "tail": 90,
+    "summary_window": 500
+  },
+  "correlations": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    1.0
+  ],
+  "image_correlations": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "image_seed": 20261011,
+  "seeds": [
+    20261011,
+    20261012,
+    20261013,
+    20261014,
+    20261015
+  ],
+  "summary": [
+    {
+      "correlation": 0.0,
+      "runs": 5,
+      "mean_polarization": {
+        "mean": 0.059896576888119876,
+        "sd_between_seeds": 0.004652558611570852,
+        "minimum": 0.05291685571935329,
+        "maximum": 0.0656438397771922
+      },
+      "net_transport": {
+        "mean": 0.009825047132420208,
+        "sd_between_seeds": 0.003657224385244758,
+        "minimum": 0.006488884626192282,
+        "maximum": 0.015777797199362644
+      }
+    },
+    {
+      "correlation": 0.25,
+      "runs": 5,
+      "mean_polarization": {
+        "mean": 0.0978265509947002,
+        "sd_between_seeds": 0.013754785214072892,
+        "minimum": 0.08544617245774726,
+        "maximum": 0.1136875175570477
+      },
+      "net_transport": {
+        "mean": 0.00919745107585445,
+        "sd_between_seeds": 0.003765894780726751,
+        "minimum": 0.005574085658773344,
+        "maximum": 0.01414579849688318
+      }
+    },
+    {
+      "correlation": 0.5,
+      "runs": 5,
+      "mean_polarization": {
+        "mean": 0.234271239177605,
+        "sd_between_seeds": 0.08301154679947643,
+        "minimum": 0.13959626106718806,
+        "maximum": 0.3359116968823987
+      },
+      "net_transport": {
+        "mean": 0.02333156042950335,
+        "sd_between_seeds": 0.022537708280095,
+        "minimum": 0.005202737251803289,
+        "maximum": 0.057472075697595666
+      }
+    },
+    {
+      "correlation": 0.75,
+      "runs": 5,
+      "mean_polarization": {
+        "mean": 0.5286193716202143,
+        "sd_between_seeds": 0.11829675840658228,
+        "minimum": 0.34228480702698466,
+        "maximum": 0.6495909971036574
+      },
+      "net_transport": {
+        "mean": 0.05156448450067398,
+        "sd_between_seeds": 0.024076393511899035,
+        "minimum": 0.023962845320706118,
+        "maximum": 0.07719902965384101
+      }
+    },
+    {
+      "correlation": 0.9,
+      "runs": 5,
+      "mean_polarization": {
+        "mean": 0.8168390324249092,
+        "sd_between_seeds": 0.026286127020778424,
+        "minimum": 0.7791159791011177,
+        "maximum": 0.8483610021003808
+      },
+      "net_transport": {
+        "mean": 0.05813389266864459,
+        "sd_between_seeds": 0.041394984644924374,
+        "minimum": 0.00690986235502313,
+        "maximum": 0.10960191153835762
+      }
+    },
+    {
+      "correlation": 1.0,
+      "runs": 5,
+      "mean_polarization": {
+        "mean": 0.9589751629832868,
+        "sd_between_seeds": 0.04846512900515991,
+        "minimum": 0.8770080069173006,
+        "maximum": 0.9919530523930704
+      },
+      "net_transport": {
+        "mean": 0.07139281669376416,
+        "sd_between_seeds": 0.033063665797707927,
+        "minimum": 0.0450151415312047,
+        "maximum": 0.12043044628187534
+      }
+    }
+  ],
+  "noise_equation": "delta_i = sigma * (sqrt(c) * Z_common + sqrt(1-c) * Z_i); independent standard normal Z",
+  "matching": "Identical initial positions/headings and underlying random draws for each seed across conditions",
+  "polarization_definition": "time mean of norm(mean particle unit headings)",
+  "transport_definition": "norm(time-and-particle mean unit headings)",
+  "source": "https://doi.org/10.1103/PhysRevLett.75.1226",
+  "limits": "1500-step finite simulations; final 500 steps summarized; no equilibrium or transition-threshold claim."
+}

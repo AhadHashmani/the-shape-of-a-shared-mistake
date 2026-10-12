@@ -1,0 +1,93 @@
+SCIENTIFIC QUESTION
+At fixed individual error strength, how does sharing directional errors
+change moment-to-moment agreement and sustained directional transport?
+
+CONTROLLED EXPERIMENT
+Six predeclared shared fractions c = 0, .25, .5, .75, .9, 1.
+Five independent seeds per fraction; 30 runs total.
+Across conditions at each seed, both initial states and underlying random
+number draws match. The displayed cases were preselected as c = 0, .5, 1
+with seed 20261011. They were not selected from the most favorable runs.
+
+Each run has 1,100 particles, a periodic square of side 25 model length
+units, interaction radius 1, speed .18 units per step, 1,500 steps, and
+Gaussian angular-error SD sigma = 1.2 radians. Images use the last 90
+states (89 connecting segments); statistics use the final 500 states.
+
+NOISE FORMULA
+delta_i(t) = sigma [sqrt(c) Z_common(t) + sqrt(1-c) Z_i(t)].
+All Z are independent standard normal draws, except for the shared draw
+explicitly reused across particles at a given time. Each delta_i has
+variance sigma^2 at every c. The correlation between distinct particles'
+unwrapped errors is c. Common draws are refreshed at every time step.
+Finite-sample RMS and estimated pair correlations are included in results.csv.
+
+TWO METRICS
+Let m(t) be the mean particle unit-heading vector at time t.
+Alignment P = average_t |m(t)|.
+Directional transport Q = |average_t m(t)|.
+Both range from zero to one, and Q <= P. P measures agreement at a moment;
+Q also requires persistence in direction across the analysis window.
+Transport is measured from heading/velocity vectors, not from wrapped
+position differences across the periodic seam.
+
+WHY SHARED NOISE IS DIFFERENT
+Rotating all heading vectors by one common angle preserves their
+instantaneous alignment magnitude exactly. Independent rotations can
+reduce agreement. Spatial neighborhoods still evolve, and finite-run
+collective dynamics are measured rather than assumed.
+
+RESULTS ACROSS FIVE SEEDS
+c=0: mean alignment 0.060, seed SD 0.005; mean transport 0.010, seed SD 0.004
+c=0.25: mean alignment 0.098, seed SD 0.014; mean transport 0.009, seed SD 0.004
+c=0.5: mean alignment 0.234, seed SD 0.083; mean transport 0.023, seed SD 0.023
+c=0.75: mean alignment 0.529, seed SD 0.118; mean transport 0.052, seed SD 0.024
+c=0.9: mean alignment 0.817, seed SD 0.026; mean transport 0.058, seed SD 0.041
+c=1: mean alignment 0.959, seed SD 0.048; mean transport 0.071, seed SD 0.033
+
+READING THE ARTWORK
+Hue is each particle's FINAL heading along its ENTIRE displayed path.
+It is not the instantaneous heading at every earlier segment.
+Brightness increases with time; old trails are darker.
+All images use the same cyclic palette, width rule, scale, full-domain
+framing, time window, and trajectory-derived halo. No condition-specific
+crop, rotation, palette choice, or synthetic particle path is introduced.
+The halo is a presentation effect rather than physical emission.
+Overlaid paths can occlude one another; these are not calibrated density maps.
+
+LIMITS
+These are finite-time results at one density, radius, speed and error SD.
+They do not establish equilibrium, a critical threshold, a universal law,
+or a behavioral explanation for a particular organism. Error or "mistake"
+means a perturbation from the local mean heading; no externally correct
+target direction is defined. Phase and density patterns are simulated.
+First/second half means of the summary window are retained in results.csv
+so remaining temporal evolution can be inspected.
+
+CHECKS
+Independent fixtures check periodic neighbor geometry, circular averaging,
+common-rotation invariance, and the distinction between agreement and net
+transport. A separate 100,000-sample test checks noise variance and pair
+correlation. Tiny simulations check exact seeded reproducibility.
+Every run checks finite states; initial velocity magnitudes, self-inclusion
+and symmetric neighborhoods are checked. Package verification checks all
+30 runs, empirical noise statistics, P/Q bounds, and final image dimensions.
+
+REPRODUCING
+Install Python dependencies from requirements.txt.
+1. python model.py
+2. python experiment.py --seeds 5
+3. python render.py --size 8700
+4. python package.py
+Cached NPZ runs are checked against configuration before reuse. Delete or
+move matching NPZ files if you change the model implementation itself.
+Primary artworks are three PNGs at 8700 x 8700 pixels with 600-dpi metadata.
+preview.jpg and scientific_results.png are supporting material, not three
+additional competition entries. Preview labels use Helvetica when available;
+primary artworks contain no typography and do not depend on that font.
+
+SOURCE AND CONTRIBUTION
+Base model: https://doi.org/10.1103/PhysRevLett.75.1226.
+The entrant selected noise as the scientific focus. Code, experiment design,
+analysis, renderings and draft descriptions were developed with Codex
+assistance. Personal credit and contributions should be described accurately.
